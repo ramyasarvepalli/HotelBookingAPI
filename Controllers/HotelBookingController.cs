@@ -22,11 +22,19 @@ namespace HotelBookingAPI.Controllers
             if (hotel.Id == 0)
             {
                 // Create new hotel booking
-            }
+                _context.HotelBookings.Add(hotel);
+            } 
             else
             {
                 // Update existing hotel booking
+                var existingHotel = _context.HotelBookings.Find(hotel.Id);
+                if (existingHotel == null)
+                {
+                    return NotFound();
+                }
+                existingHotel = hotel;
             }
+            _context.SaveChanges();
             return Ok(hotel);
         }
     }
