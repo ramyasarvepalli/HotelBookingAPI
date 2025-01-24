@@ -1,0 +1,66 @@
+﻿1. Create a webapi empty project with swagger/openapi support
+2. Remove the default weatherforecast controller and model
+3. Create a new model named "HotelBooking"
+4. Add the following properties to the model
+	- Id
+	- GuestName
+	- RoomNumber
+5. Install the nuget package "Microsoft.EntityFrameworkCore.InMemory"
+6. Create a new folder named "Data"
+7. Create a new class named "ApiContext" in the "Data" folder
+8. Inherit the "DbContext" class in the "ApiContext" class
+9. Add a constructor to the "ApiContext" class that accepts "DbContextOptions<ApiContext> options" and passes it to the base class
+10. Add a property of type "DbSet<HotelBooking>" to the "ApiContext" class
+11. Add a new folder named "Controllers"
+12. Create a new controller named "HotelBookingController" in the "Controllers" folder
+13. Inherit the "ControllerBase" class in the "HotelBookingController" class
+14. Add a constructor to the "HotelBookingController" class that accepts "ApiContext context" and assigns it to a private field
+15. Add a "GET" action method to the "HotelBookingController" class that returns all the hotel bookings
+16. Add a "GET" action method to the "HotelBookingController" class that returns a hotel booking by id
+17. Add a "POST" action method to the "HotelBookingController" class that creates a new hotel booking
+18. Add a "PUT" action method to the "HotelBookingController" class that updates a hotel booking
+19. Add a "DELETE" action method to the "HotelBookingController" class that deletes a hotel booking
+20. Add a new folder named "Services"
+21. Create a new class named "HotelBookingService" in the "Services" folder
+22. Add a constructor to the "HotelBookingService" class that accepts "ApiContext context" and assigns it to a private field
+23. Add a method to the "HotelBookingService" class that returns all the hotel bookings
+24. Add a method to the "HotelBookingService" class that returns a hotel booking by id
+25. Add a method to the "HotelBookingService" class that creates a new hotel booking
+26. Add a method to the "HotelBookingService" class that updates a hotel booking
+27. Add a method to the "HotelBookingService" class that deletes a hotel booking
+28. Add a new folder named "Models"
+29. Create a new class named "HotelBookingDto" in the "Models" folder
+30. Add the following properties to the "HotelBookingDto" class
+	- Id
+	- GuestName
+	- RoomNumber
+31. Add a new folder named "Mappers"
+32. Create a new class named "HotelBookingMapper" in the "Mappers" folder
+33. Add a method to the "HotelBookingMapper" class that maps a "HotelBooking" to a "HotelBookingDto"
+34. Add a method to the "HotelBookingMapper" class that maps a "HotelBookingDto" to a "HotelBooking"
+35. Add a new folder named "Validators"
+36. Create a new class named "HotelBookingValidator" in the "Validators" folder
+37. Add a method to the "HotelBookingValidator" class that validates a "HotelBooking"
+38. Add a new folder named "Filters"
+39. Create a new class named "ValidateModelAttribute" in the "Filters" folder
+40. Inherit the "ActionFilterAttribute" class in the "ValidateModelAttribute" class
+41. Add a constructor to the "ValidateModelAttribute" class that accepts "IValidatorFactory validatorFactory" and assigns it to a private field
+42. Override the "OnActionExecuting" method in the "ValidateModelAttribute" class
+43. Add a new folder named "Extensions"
+44. Create a new class named "ServiceCollectionExtensions" in the "Extensions" folder
+45. Add a method to the "ServiceCollectionExtensions" class that adds the "ApiContext" to the service collection
+46. Add a method to the "ServiceCollectionExtensions" class that adds the "HotelBookingService" to the service collection
+47. Add a method to the "ServiceCollectionExtensions" class that adds the "HotelBookingMapper" to the service collection
+48. Add a method to the "ServiceCollectionExtensions" class that adds the "HotelBookingValidator" to the service collection
+49. Add a method to the "ServiceCollectionExtensions" class that adds the "ValidateModelAttribute" to the service collection
+50. Add a new folder named "Startup"
+51. Create a new class named "Startup" in the "Startup" folder
+52. Add a constructor to the "Startup" class that accepts "IConfiguration configuration" and assigns it to a private field
+53. Add a "ConfigureServices" method to the "Startup" class that configures the services
+54. Add a "Configure" method to the "Startup" class that configures the application
+55. Add a new folder named "AppSettings"
+56. Create a new class named "AppSettings" in the "AppSettings" folder
+57. Add the following properties to the "AppSettings" class
+	- ConnectionString
+
+
