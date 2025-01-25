@@ -1,4 +1,6 @@
-﻿1. Create a webapi empty project with swagger/openapi support
+﻿// InMemory data storage web API project - best for unit testing
+
+1. Create a webapi empty project with swagger/openapi support
 2. Remove the default weatherforecast controller and model
 3. Create a new model named "HotelBooking"
 4. Add the following properties to the model

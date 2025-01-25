@@ -37,5 +37,37 @@ namespace HotelBookingAPI.Controllers
             _context.SaveChanges();
             return Ok(hotel);
         }
+
+        [HttpGet]
+        public JsonResult GetDetails(int id)
+        {
+            var result = _context.HotelBookings.Find(id);
+            if (result == null)
+             return new JsonResult(NotFound()); 
+            return new JsonResult(Ok(result));
+        }
+
+        [HttpGet("/GetAll")]
+        public IActionResult GetAllDetails()
+        {
+            var result = _context.HotelBookings.All(c => c.Id >= 0) ? _context.HotelBookings.ToList(): null;
+
+           // .All(c => c.Id >= 0);
+            if (result == null)
+                return NotFound();
+            return Ok(result);
+        }
+
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            var result = _context.HotelBookings.Find(id);
+            if (result == null)
+                return NotFound();
+            _context.HotelBookings.Remove(result);
+            _context.SaveChanges();
+            return Ok("Deleted");
+        }
+
     }
 }
